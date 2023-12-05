@@ -44,45 +44,45 @@ public class MainController {
     }
 
 
-//    @PutMapping(path = "/update/user/{id}")
-//    public @ResponseBody String updateUser (@PathVariable Integer id,@RequestBody User updatedUser){
-//        User user = userRepository.findById(id).get();
-//
-//        if(!updatedUser.getName().isEmpty()){
-//            user.setName(updatedUser.getName());
-//        }
-//
-//        if(!updatedUser.getEmail().isEmpty()){
-//            user.setEmail(updatedUser.getEmail());
-//        }
-//
-//        if(!updatedUser.getPassword().isEmpty()){
-//            user.setPassword(updatedUser.getPassword());
-//        }
-//
-//        if(!updatedUser.getRole().isEmpty()){
-//            user.setRole(updatedUser.getRole());
-//        }
-//
-//        userRepository.save(user);
-//        return "User updated successfully";
-//
-//    }
+    @PutMapping(path = "/update/user/{id}")
+    public @ResponseBody String updateUser (@PathVariable Integer id,@RequestBody User updatedUser){
+        User user = userRepository.findById(id).get();
 
-//    @PutMapping(path = "/update/article/{id}")
-//    public @ResponseBody String updateArticle (@PathVariable Integer id,@RequestBody Article updatedArticle){
-//        Article article = articleRepository.findById(id).get();
-//
-//        if(!updatedArticle.getAuthor().isEmpty()){
-//            article.setAuthor(updatedArticle.getAuthor());
-//        }
-//
-//        if(!updatedArticle.getContent().isEmpty()){
-//            article.setContent(updatedArticle.getContent());
-//        }
-//
-//        articleRepository.save(article);
-//        return "Article updated successfully";
-//
-//    }
+        if(!updatedUser.getName().isEmpty()){
+            user.setName(updatedUser.getName());
+        }
+
+        if(!updatedUser.getEmail().isEmpty()){
+            user.setEmail(updatedUser.getEmail());
+        }
+
+        if(!updatedUser.getPassword().isEmpty()){
+            user.setPassword(updatedUser.getPassword());
+        }
+
+        if(!updatedUser.getRole().isEmpty()){
+            user.setRole(updatedUser.getRole());
+        }
+
+        userRepository.save(user);
+        return "User updated successfully";
+
+    }
+
+    @PutMapping(path = "/update/article/{id}")
+    public @ResponseBody String updateArticle (@PathVariable Integer id,@RequestBody Article updatedArticle){
+        Article article = articleRepository.findById(id).get();
+
+        if(!updatedArticle.getAuthor().isEmpty()){
+            article.setAuthor(updatedArticle.getAuthor());
+        }
+
+        if(!updatedArticle.getContent().isEmpty()){
+            article.setContent(updatedArticle.getContent());
+        }
+
+        articleRepository.save(article);
+        return "Article updated successfully";
+
+    }
 }
