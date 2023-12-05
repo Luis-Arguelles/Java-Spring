@@ -38,10 +38,10 @@ public class MainController {
         return userRepository.findAll();
     }
 
-//    @GetMapping(path = "/all/articles")
-//    public @ResponseBody Iterable<Article> getAllArticles()  {
-//        return articleRepository.findAll();
-//    }
+    @GetMapping(path = "/all/articles")
+    public @ResponseBody Iterable<Article> getAllArticles()  {
+        return articleRepository.findAll();
+    }
 
 
 //    @PutMapping(path = "/update/user/{id}")
