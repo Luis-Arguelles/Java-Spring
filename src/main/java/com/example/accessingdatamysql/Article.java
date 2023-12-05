@@ -43,11 +43,11 @@ public class Article {
         this.date = LocalDateTime.now();
     }
 
-    public String getAuthor(){
+    public User getAuthor(){
         return this.author;
     }
 
-    public void setAuthor(String newAuthor){
+    public void setAuthor(User newAuthor){
         this.author = newAuthor;
     }
 

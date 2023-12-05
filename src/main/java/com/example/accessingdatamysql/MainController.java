@@ -73,9 +73,9 @@ public class MainController {
     public @ResponseBody String updateArticle (@PathVariable Integer id,@RequestBody Article updatedArticle){
         Article article = articleRepository.findById(id).get();
 
-        if(!updatedArticle.getAuthor().isEmpty()){
-            article.setAuthor(updatedArticle.getAuthor());
-        }
+//        if(!updatedArticle.getAuthor().isEmpty()){
+//            article.setAuthor(updatedArticle.getAuthor());
+//        }
 
         if(!updatedArticle.getContent().isEmpty()){
             article.setContent(updatedArticle.getContent());
