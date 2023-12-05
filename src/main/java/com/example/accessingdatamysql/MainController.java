@@ -32,11 +32,11 @@ public class MainController {
 //    }
 
 
-//    @GetMapping(path="/all/users")
-//    public @ResponseBody Iterable<User> getAllUsers() {
-//        // This returns a JSON or XML with the users
-//        return userRepository.findAll();
-//    }
+    @GetMapping(path="/all/users")
+    public @ResponseBody Iterable<User> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return userRepository.findAll();
+    }
 
 //    @GetMapping(path = "/all/articles")
 //    public @ResponseBody Iterable<Article> getAllArticles()  {
