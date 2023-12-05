@@ -1,19 +1,33 @@
 package com.example.accessingdatamysql;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
-
     private String name;
-
     private String email;
+    private String password;
+    private String role;
+
+
+    public User(String name, String email, String password, String role){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(){
+        this.name = "";
+        this.email = "";
+        this.password = "";
+        this.role = "";
+    }
 
     public Integer getId() {
         return id;
@@ -21,6 +35,22 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public void setPassword(String newPassword){
+        this.password = newPassword;
+    }
+
+    public String getRole(){
+        return this.role;
+    }
+
+    public void setRole(String newRole){
+        this.role = newRole;
     }
 
     public String getName() {
@@ -38,4 +68,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @OneToMany(mappedBy = "author")
+    private Collection<Article> articles;
 }
