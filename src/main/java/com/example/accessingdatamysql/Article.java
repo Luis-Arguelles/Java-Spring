@@ -66,4 +66,7 @@ public class Article {
 
     @OneToMany(mappedBy = "article")
     private Collection<Likes> likes;
+
+    @OneToMany(mappedBy = "article")
+    private Collection<Dislike> dislikes;
 }

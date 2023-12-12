@@ -17,4 +17,7 @@ public class MainController {
     @Autowired
     private LikeController likeController;
 
+    @Autowired
+    private DislikeController dislikeController;
+
 }

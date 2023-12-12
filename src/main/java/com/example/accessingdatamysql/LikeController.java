@@ -51,6 +51,7 @@ public class LikeController {
             like.setArticle(articleRepository.findById(likeRequest.getArticleId()).get());
         }
 
+
         if(likeRequest.getIsLiked() != null){
             like.setIsLiked(likeRequest.getIsLiked());
             //return "Sí jala, según";

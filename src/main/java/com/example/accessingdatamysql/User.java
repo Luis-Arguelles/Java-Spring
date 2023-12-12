@@ -74,4 +74,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private Collection<Likes> likes;
+
+    @OneToMany(mappedBy = "user")
+    private Collection<Dislike> dislikes;
 }
