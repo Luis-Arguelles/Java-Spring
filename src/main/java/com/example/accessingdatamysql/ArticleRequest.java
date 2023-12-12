@@ -1,11 +1,11 @@
 package com.example.accessingdatamysql;
 
-public class articleRequest {
+public class ArticleRequest {
 
     private Integer authorId;
     private String content;
 
-    public articleRequest(Integer author, String content){
+    public ArticleRequest(Integer author, String content){
         this.authorId = author;
         this.content = content;
     }

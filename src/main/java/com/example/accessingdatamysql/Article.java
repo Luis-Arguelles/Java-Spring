@@ -2,6 +2,7 @@ package com.example.accessingdatamysql;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 @Entity
 public class Article {
@@ -62,4 +63,7 @@ public class Article {
     public void setContent(String newContent){
         this.content = newContent;
     }
+
+    @OneToMany(mappedBy = "article")
+    private Collection<Likes> likes;
 }
