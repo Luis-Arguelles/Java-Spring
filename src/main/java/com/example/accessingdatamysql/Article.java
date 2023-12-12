@@ -12,7 +12,7 @@ public class Article {
     private Integer id;
     private LocalDateTime date;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "author_id")
     private User author;
     private String content;
@@ -24,7 +24,7 @@ public class Article {
     }
 
     public Article(){
-
+        setDate();
     }
 
     public Integer getId(){
@@ -45,6 +45,10 @@ public class Article {
 
     public User getAuthor(){
         return this.author;
+    }
+
+    public int getAuthorId(){
+        return this.author.getId();
     }
 
     public void setAuthor(User newAuthor){

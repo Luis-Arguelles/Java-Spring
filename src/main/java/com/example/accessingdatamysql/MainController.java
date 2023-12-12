@@ -25,8 +25,12 @@ public class MainController {
     }
 
     @PostMapping(path="/add/article")
-    public @ResponseBody String addNewArticle (@RequestBody Article article){
-        articleRepository.save(article);
+    public @ResponseBody String addNewArticle (@RequestBody articleRequest article){
+
+        Article newArticle = new Article();
+        newArticle.setContent(article.getContent());
+        newArticle.setAuthor(userRepository.findById(article.getAuthorId()).get());
+        articleRepository.save(newArticle);
         return "Article saved successfully";
 
     }
@@ -70,12 +74,12 @@ public class MainController {
     }
 
     @PutMapping(path = "/update/article/{id}")
-    public @ResponseBody String updateArticle (@PathVariable Integer id,@RequestBody Article updatedArticle){
+    public @ResponseBody String updateArticle (@PathVariable Integer id,@RequestBody articleRequest updatedArticle){
         Article article = articleRepository.findById(id).get();
 
-//        if(!updatedArticle.getAuthor().isEmpty()){
-//            article.setAuthor(updatedArticle.getAuthor());
-//        }
+        if(updatedArticle.getAuthorId() != null){
+            article.setAuthor(userRepository.findById(updatedArticle.getAuthorId()).get());
+        }
 
         if(!updatedArticle.getContent().isEmpty()){
             article.setContent(updatedArticle.getContent());
@@ -84,5 +88,17 @@ public class MainController {
         articleRepository.save(article);
         return "Article updated successfully";
 
+    }
+
+@DeleteMapping(path = "/delete/user/{id}")
+    public @ResponseBody String deleteUser (@PathVariable Integer id){
+        userRepository.deleteById(id);
+        return "User deleted successfully";
+    }
+
+    @DeleteMapping(path = "/delete/article/{id}")
+    public @ResponseBody String deleteArticle (@PathVariable Integer id){
+        articleRepository.deleteById(id);
+        return "Article deleted successfully";
     }
 }
